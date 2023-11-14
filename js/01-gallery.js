@@ -33,11 +33,9 @@ function onImageClick(evt) {
    src="${bigImage}"
    alt="${descr}"
    />
-   `);
+   `, {onShow: instance => {document.addEventListener("keydown", onEscBtnClick)}, onClose: instance => {document.removeEventListener("keydown", onEscBtnClick)}});
 
    instance.show()
-
-   document.addEventListener("keydown", onEscBtnClick);
 
    function onEscBtnClick(evt) {
     if(!instance.visible()) {
